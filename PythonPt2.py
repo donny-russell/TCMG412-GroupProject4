@@ -101,7 +101,10 @@ for line in file:
         pass
 print(countnotsuccess/totalcount *100, '%')
 file.close()
-
+perCount=countnotsuccess/total *100
+outputFile = open('output.txt', 'a') #changed from w to a for appending instead of overwriting
+outputFile.write(str(perCount))
+outputFile.close()
 #4 percentage of redirected requests
 def redirected(lineIn):
     return lineIn[lineIn.index('HTTP/1.0" ')+10:lineIn.index('HTTP/1.0\" ')+11] == '4'
